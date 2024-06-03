@@ -1,5 +1,9 @@
 name: Build and deploy
 
+defaults:
+  run:
+    working-directory: app
+
 on:
   push:
     branches: ["main"]
@@ -25,10 +29,8 @@ jobs:
           cache: "npm"
       - name: Install Packages
         run: npm ci
-        working-directory: app
       - name: Build
         run: npm run build
-        working-directory: app
       #- name: Test
       #  run: npm test
       - name: Deploy🚀
